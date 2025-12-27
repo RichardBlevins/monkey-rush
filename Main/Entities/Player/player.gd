@@ -7,9 +7,12 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if position <= Vector2(192, 0): 
-		velocity.x += 1 
+		velocity.x = 300
 	else: 
-		velocity.x = 0 
+		velocity.x = 0
+		Manager.start = true
+		
+		
 		
 
 

@@ -14,9 +14,17 @@ config/name="MonkeyRush"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Manager="*res://Main/Manager.gd"
+
 [display]
 
 window/stretch/mode="viewport"
+
+[global_group]
+
+game=""
 
 [rendering]
 
