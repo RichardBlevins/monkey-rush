@@ -1,15 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3ob5ccmymphh"]
+[gd_scene load_steps=10 format=3 uid="uid://b3ob5ccmymphh"]
 
+[ext_resource type="PackedScene" uid="uid://bnso8s1w7u2oh" path="res://Main/UI/HUD/Score.tscn" id="1_qg80j"]
 [ext_resource type="Script" uid="uid://3qc8twiijvuj" path="res://Main/Background.gd" id="2_6aewd"]
 [ext_resource type="PackedScene" uid="uid://bx3hgtop3c881" path="res://Main/Entities/Player/Player.tscn" id="2_83ytx"]
 [ext_resource type="Texture2D" uid="uid://b2jknkfpbygox" path="res://Main/Assets/BG/IMG_0004.png" id="2_amygn"]
 [ext_resource type="Texture2D" uid="uid://bn706c4fy3urv" path="res://Main/Assets/BG/IMG_0005.png" id="3_amygn"]
 [ext_resource type="Texture2D" uid="uid://qdx2kyhsgf6g" path="res://Main/Assets/BG/IMG_0006.png" id="4_ps1la"]
+[ext_resource type="PackedScene" uid="uid://c8kjwx5mr8p0l" path="res://Main/UI/Main_Menu.tscn" id="6_u2i7p"]
+[ext_resource type="Script" uid="uid://bkv6nuaybcarg" path="res://Main/UI/main_menu.gd" id="7_hh5pf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxy7q"]
 size = Vector2(335, 43.75)
 
 [node name="Main" type="Node2D"]
+
+[node name="Score" parent="." instance=ExtResource("1_qg80j")]
+
+[node name="MainMenu" parent="." instance=ExtResource("6_u2i7p")]
+script = ExtResource("7_hh5pf")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -5
@@ -37,7 +45,11 @@ position = Vector2(591, 362)
 scale = Vector2(0.50338984, 0.4987805)
 texture = ExtResource("4_ps1la")
 
+[node name="ScoreTimer" type="Timer" parent="Parallax2D"]
+wait_time = 0.5
+
 [node name="Player" parent="." instance=ExtResource("2_83ytx")]
+process_mode = 4
 position = Vector2(-32, 608)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -54,3 +66,4 @@ position = Vector2(149, 384)
 shape = SubResource("RectangleShape2D_lxy7q")
 
 [connection signal="timeout" from="Parallax2D/Timer" to="Parallax2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Parallax2D/ScoreTimer" to="Parallax2D" method="_on_timer_score"]

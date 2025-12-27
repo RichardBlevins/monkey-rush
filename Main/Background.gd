@@ -12,5 +12,9 @@ func _process(delta: float) -> void:
 		autoscroll = Vector2(-400, 0) - AddedSpeed
 		if OneStart == false:
 			$Timer.start()
+			$ScoreTimer.start()
 			OneStart = !OneStart
 		
+
+func _on_timer_score() -> void:
+	Manager.score += 1
