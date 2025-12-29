@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 		if OneStart == false:
 			$Timer.start()
 			$ScoreTimer.start()
-			OneStart = !OneStart
+			OneStart = !OneStart 
 		
 
 func _on_timer_score() -> void:
