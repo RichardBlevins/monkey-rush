@@ -1,5 +1,6 @@
 extends Parallax2D
 
+
 var AddedSpeed = Vector2.ZERO
 var OneStart = false
 
@@ -13,8 +14,9 @@ func _process(delta: float) -> void:
 		if OneStart == false:
 			$Timer.start()
 			$ScoreTimer.start()
+			$Obsticals.start()
 			OneStart = !OneStart 
 		
 
-func _on_timer_score() -> void:
-	Manager.score += 1
+
+	
