@@ -26,10 +26,6 @@ repeat_times = 2
 follow_viewport = false
 script = ExtResource("2_6aewd")
 
-[node name="Timer" type="Timer" parent="Parallax2D"]
-wait_time = 3.0
-one_shot = true
-
 [node name="Img0004" type="Sprite2D" parent="Parallax2D"]
 position = Vector2(1773, 362)
 scale = Vector2(0.5, 0.5)
@@ -45,8 +41,15 @@ position = Vector2(591, 362)
 scale = Vector2(0.50338984, 0.4987805)
 texture = ExtResource("4_ps1la")
 
+[node name="Timer" type="Timer" parent="Parallax2D"]
+wait_time = 3.0
+one_shot = true
+
 [node name="ScoreTimer" type="Timer" parent="Parallax2D"]
 wait_time = 0.5
+
+[node name="Obsticals" type="Timer" parent="Parallax2D"]
+wait_time = 2.8
 
 [node name="Player" parent="." instance=ExtResource("2_83ytx")]
 process_mode = 4
