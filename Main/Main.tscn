@@ -53,16 +53,11 @@ one_shot = true
 wait_time = 0.5
 
 [node name="Obsticals" type="Timer" parent="Parallax2D"]
-wait_time = 2.8
-one_shot = true
+wait_time = 0.5
 
 [node name="Player" parent="." instance=ExtResource("2_83ytx")]
 process_mode = 4
 position = Vector2(-32, 608)
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Player"]
-position = Vector2(40, -648)
-rect = Rect2(-10, -10, 1186, 778)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -80,4 +75,3 @@ shape = SubResource("RectangleShape2D_lxy7q")
 [connection signal="timeout" from="Parallax2D/Timer" to="Parallax2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Parallax2D/ScoreTimer" to="." method="_on_timer_score"]
 [connection signal="timeout" from="Parallax2D/Obsticals" to="." method="_on_obsticals_timeout"]
-[connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D" to="Player" method="_on_visible_on_screen_notifier_2d_screen_exited"]
