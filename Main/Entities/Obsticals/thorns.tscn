@@ -16,8 +16,7 @@ shape = SubResource("RectangleShape2D_4c3rq")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 z_index = 5
-position = Vector2(1.5258789e-05, 0)
-scale = Vector2(512, 16)
+scale = Vector2(384.00003, 16)
 mesh = SubResource("BoxMesh_4c3rq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

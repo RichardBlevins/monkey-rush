@@ -10,10 +10,10 @@ func _on_timer_timeout() -> void:
 func _process(delta: float) -> void:
 	Manager.BGSpeed = AddedSpeed.x/60
 	AddedSpeed.x = Manager.score
-	if Manager.start == true:
+	if Manager.start == true && Manager.score < 400:
 		autoscroll = Vector2(-400, 0) - AddedSpeed
 		if OneStart == false:
-			$Timer.start()
+			$StartTimer.start()
 			$ScoreTimer.start()
 			$Obsticals.start()
 			OneStart = !OneStart 

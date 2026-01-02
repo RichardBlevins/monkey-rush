@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3ob5ccmymphh"]
+[gd_scene load_steps=13 format=3 uid="uid://b3ob5ccmymphh"]
 
 [ext_resource type="PackedScene" uid="uid://bnso8s1w7u2oh" path="res://Main/UI/HUD/Score.tscn" id="1_qg80j"]
 [ext_resource type="Script" uid="uid://cxotynh3r3pyt" path="res://Main/main.gd" id="1_wltqy"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://o3lysjahuo3c" path="res://Main/Entities/Obsticals/thorns.tscn" id="5_bor5n"]
 [ext_resource type="PackedScene" uid="uid://c8kjwx5mr8p0l" path="res://Main/UI/Main_Menu.tscn" id="6_u2i7p"]
 [ext_resource type="Script" uid="uid://bkv6nuaybcarg" path="res://Main/UI/main_menu.gd" id="7_hh5pf"]
+[ext_resource type="Script" uid="uid://bqqtbrknas5e4" path="res://Main/obsticals.gd" id="10_kf8jr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxy7q"]
 size = Vector2(335, 43.75)
@@ -45,7 +46,7 @@ position = Vector2(591, 362)
 scale = Vector2(0.50338984, 0.4987805)
 texture = ExtResource("4_ps1la")
 
-[node name="Timer" type="Timer" parent="Parallax2D"]
+[node name="StartTimer" type="Timer" parent="Parallax2D"]
 wait_time = 3.0
 one_shot = true
 
@@ -53,7 +54,8 @@ one_shot = true
 wait_time = 0.5
 
 [node name="Obsticals" type="Timer" parent="Parallax2D"]
-wait_time = 0.5
+wait_time = 2.8
+script = ExtResource("10_kf8jr")
 
 [node name="Player" parent="." instance=ExtResource("2_83ytx")]
 process_mode = 4
@@ -72,6 +74,7 @@ position = Vector2(-16, 280)
 position = Vector2(149, 384)
 shape = SubResource("RectangleShape2D_lxy7q")
 
-[connection signal="timeout" from="Parallax2D/Timer" to="Parallax2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Parallax2D/StartTimer" to="Parallax2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Parallax2D/ScoreTimer" to="." method="_on_timer_score"]
 [connection signal="timeout" from="Parallax2D/Obsticals" to="." method="_on_obsticals_timeout"]
+[connection signal="timeout" from="Parallax2D/Obsticals" to="Parallax2D/Obsticals" method="_on_timeout"]

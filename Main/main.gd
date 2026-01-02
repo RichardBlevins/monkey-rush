@@ -5,7 +5,8 @@ extends Node2D
 func _on_obsticals_timeout() -> void:
 	var thorns = thorns_scene.instantiate()
 	
-	thorns.position = Vector2(randi_range(1500, 5000), randi_range(550, 100))
+	thorns.position = Vector2(randi_range(1200, 2300), randi_range(550, 100))
+	
 	add_child(thorns)
 
 func _process(delta: float) -> void:
